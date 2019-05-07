@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\assets",
+    "\\assets\\images",
+    "\\components",
+    "\\constants",
+    "\\navigation",
+    "\\screens",
+    "\\screens\\Settings"
+  ],
+  "SelectedNode": "\\screens\\SettingsScreen.js",
+  "PreviewInSolutionExplorer": false
+}
