@@ -16,7 +16,7 @@ import ToggleSwitch from 'toggle-switch-react-native';
 const plantprof = require('./images/plant.jpg');
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: 'app.json',
+    title: '',
   };
 
   render() 
@@ -28,17 +28,32 @@ export default class SettingsScreen extends React.Component {
                 style={styles.plantprof}
                 source={plantprof}
             />
-            <ToggleSwitch
-            isOn={false}
-            onColor='green'
-            offColor='red'
-            label=''
-            labelStyle={{color: 'black', fontWeight: '900'}}
-            size='large'
-            onToggle={ (isOn) => console.log('changed to : ', isOn)
-          }
-        />
-        </View>
+
+          <View style = {styles.settingContainer}>
+
+             <Text style={styles.settingText}>
+                Notifications
+              </Text>
+          </View>
+
+          <View style = {styles.settingContainer}>
+             <Text style={styles.settingText}>
+                Tips
+              </Text>
+          </View>
+
+          <View style = {styles.settingContainer}>
+             <Text style={styles.settingText}>
+                Reminder
+              </Text>
+          </View>
+
+          <View style = {styles.settingContainer}>
+             <Text style={styles.settingText}>
+                Help
+              </Text>
+          </View>
+          </View>
 
 
 
@@ -56,4 +71,15 @@ const styles = StyleSheet.create({
         width: 150,
         height: 200,
     },
+    settingContainer:
+    {
+      alignItems: 'center',
+      marginTop: 50,
+    },
+    settingText: {
+    fontSize: 25,
+    color: 'rgba(96,100,109, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
+  },
 });
