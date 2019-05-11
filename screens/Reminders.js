@@ -23,33 +23,112 @@ export default class Reminders extends React.Component {
     }
   }
   static navigationOptions = {
-    title: 'app.json',
+    title: '',
   };
 
   render() 
   {
-      return( 
-
-         <View style={styles.container}>
-            <Table borderStyle={{borderColor: 'transparent'}}>
-          <Row data={state.tableHead} style={styles.head} textStyle={styles.text}/>
-          {
-            state.tableData.map((rowData, index) => (
-              <TableWrapper key={index} style={styles.row}>
-                {
-                  rowData.map((cellData, cellIndex) => (
-                    <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData} textStyle={styles.text}/>
-                  ))
-                }
-              </TableWrapper>
-            ))
-          }
-        </Table>
-                    
-        </View>
-
-    );
-
+      return(
+            <View style={styles.tipsbox}>
+            <View style = {styles.header}>
+                <View style ={styles.bigheaderText}>
+                <Text>
+                    Tip Options
+                </Text>
+                </View>
+                <View style ={styles.smolheaderText}>
+                <Text>
+                    Choose health tips you want to receive
+                </Text>
+                </View>
+            </View>
+            <View style = {{flexDirection: "row", marginTop: 10}}>
+              <View style = {styles.togglebuttonText}>
+                    <Text>
+                        Tip #1
+                    </Text>
+                    </View>
+              <View style = {styles.togglebutton}>
+                    <ToggleSwitch
+                        isOn={false}
+                        onColor='red'
+                        offColor='green'
+                        label=''
+                        labelStyle={{color: 'black', fontWeight: '900'}}
+                        size='medium'
+                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
+                  </View>
+                </View>
+                <View style = {{flexDirection: "row", marginTop: 50}}>
+              <View style = {styles.togglebuttonText}>
+                    <Text>
+                        Tip #2
+                    </Text>
+                    </View>
+              <View style = {styles.togglebutton}>
+                    <ToggleSwitch
+                        isOn={false}
+                        onColor='red'
+                        offColor='green'
+                        label=''
+                        labelStyle={{color: 'black', fontWeight: '900'}}
+                        size='medium'
+                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
+                  </View>
+                </View>
+                <View style = {{flexDirection: "row", marginTop: 50}}>
+              <View style = {styles.togglebuttonText}>
+                    <Text>
+                        Tip #3
+                    </Text>
+                    </View>
+              <View style = {styles.togglebutton}>
+                    <ToggleSwitch
+                        isOn={false}
+                        onColor='red'
+                        offColor='green'
+                        label=''
+                        labelStyle={{color: 'black', fontWeight: '900'}}
+                        size='medium'
+                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
+                  </View>
+                </View>
+                <View style = {{flexDirection: "row", marginTop: 50}}>
+              <View style = {styles.togglebuttonText}>
+                    <Text>
+                        Tip #4
+                    </Text>
+                    </View>
+              <View style = {styles.togglebutton}>
+                    <ToggleSwitch
+                        isOn={false}
+                        onColor='red'
+                        offColor='green'
+                        label=''
+                        labelStyle={{color: 'black', fontWeight: '900'}}
+                        size='medium'
+                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
+                  </View>
+                </View>
+                <View style = {{flexDirection: "row", marginTop: 50}}>
+              <View style = {styles.togglebuttonText}>
+                    <Text>
+                        Tip #5
+                    </Text>
+                    </View>
+              <View style = {styles.togglebutton}>
+                    <ToggleSwitch
+                        isOn={false}
+                        onColor='red'
+                        offColor='green'
+                        label=''
+                        labelStyle={{color: 'black', fontWeight: '900'}}
+                        size='medium'
+                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
+                  </View>
+                </View>
+              </View>
+              );
   }
 }
 
@@ -58,21 +137,39 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    plantprof: {
-        width: 150,
-        height: 200,
+    header: {
+        alignItems: 'center',
+        marginBottom: 20
+    },
+    bigheaderText: {
+        fontSize: 25,
+        color: 'rgba(96,100,109, 1)',
+        lineHeight: 24,
+        textAlign: 'center',
+        marginBottom: 20
+    },
+    smolheaderText: {
+        fontSize: 10,
+        color: 'rgba(96,100,109, 1)',
+        lineHeight: 24,
+        textAlign: 'center',
+        marginBottom: 20
+    },
+    tipsbox : { 
+        flex: 1, 
+        flexDirection: "column", 
+        alignSelf: "stretch", 
+        alignItems: "center"
+    },
+    togglebutton: { 
+        flex: 1, 
+        marginLeft: 20,
+        marginRight:60
+    },
+    togglebuttonText: {
+      flex:1,
+      marginTop: 5,
+      marginRight: 20,
+      marginLeft: 100
     },
 });
-
-
-
-
-/*<ToggleSwitch
-                    isOn={false}
-                    onColor='red'
-                    offColor='green'
-                    label=''
-                    labelStyle={{color: 'black', fontWeight: '900'}}
-                    size='large'
-                    onToggle={ (isOn) => console.log('changed to : ', isOn)}
-                />*/
