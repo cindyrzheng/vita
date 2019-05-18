@@ -19,7 +19,11 @@ const plantprof = require('./images/plant.jpg');
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
+<<<<<<< HEAD
     title: 'Settings Screen'
+=======
+    title: '',
+>>>>>>> a25fe756ed41f67be31c56c6e64ebd9678a98fbe
   };
 
   render() 
@@ -39,6 +43,7 @@ export default class SettingsScreen extends React.Component {
                 style={styles.plantprof}
                 source={plantprof}
             />
+<<<<<<< HEAD
           <View style = {styles.settingContainer}>
              <TouchableOpacity
               style={styles.customBtnBG}
@@ -69,6 +74,32 @@ export default class SettingsScreen extends React.Component {
               onPress={() => navigate('Notifications', {name: 'Notification Options'})}>
               <Text style={styles.customBtnText}>Help</Text>
               </TouchableOpacity>
+=======
+
+          <View style = {styles.settingContainer}>
+
+             <Text style={styles.settingText}>
+                Notifications
+              </Text>
+          </View>
+
+          <View style = {styles.settingContainer}>
+             <Text style={styles.settingText}>
+                Tips
+              </Text>
+          </View>
+
+          <View style = {styles.settingContainer}>
+             <Text style={styles.settingText}>
+                Reminder
+              </Text>
+          </View>
+
+          <View style = {styles.settingContainer}>
+             <Text style={styles.settingText}>
+                Help
+              </Text>
+>>>>>>> a25fe756ed41f67be31c56c6e64ebd9678a98fbe
           </View>
           </View>
 
@@ -95,10 +126,17 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       marginTop: 40,
     },
+<<<<<<< HEAD
     topButton:{
       alignSelf: 'flex-end',
       marginTop: -5,
       left: 80
+=======
+    settingContainer:
+    {
+      alignItems: 'center',
+      marginTop: 50,
+>>>>>>> a25fe756ed41f67be31c56c6e64ebd9678a98fbe
     },
     settingText: {
     fontSize: 25,
@@ -106,6 +144,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     textAlign: 'center',
   },
+<<<<<<< HEAD
   button: {
     width: 150,
     height: 30,
@@ -125,3 +164,6 @@ paddingVertical: 5,
 width: 200
 }
 });
+=======
+});
+>>>>>>> a25fe756ed41f67be31c56c6e64ebd9678a98fbe
