@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/Reminders';
+import LinksScreen from '../screens/ExpandedStatSleep';
 import SettingsScreen from '../screens/SettingsScreen';
 const HomeStack = createStackNavigator({
   Home: HomeScreen,

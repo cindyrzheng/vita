@@ -11,13 +11,50 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+const plantprof = require('./images/plant.jpg');
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+  
+  render(){
+    return(
+    <View style ={styles.container}>
+    <Image
+      style={styles.plantprof}
+      source={plantprof}/>
+      <View style = {styles.welcomeText}>
+        <Text>Welcome To Vita!</Text>
+      </View>
+    </View>
+      
+    );
+  }
+}
 
-  render() {
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#ffffff',
+    },
+    welcomeText: {
+      fontSize: 500,
+      color: 'rgba(96,100,109, 1)',
+      lineHeight: 24,
+      textAlign: 'center',
+    },
+    plantprof: {
+      width: 150,
+      height: 200,
+      justifyContent: 'center',
+      alignItems: 'center',
+      alignSelf: 'center',
+      marginTop : 30,
+  },
+  });
+
+  /*render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -185,4 +222,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#2e78b7',
   },
-});
+});*/

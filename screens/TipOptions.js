@@ -16,8 +16,14 @@ import ToggleSwitch from 'toggle-switch-react-native';
 //var reminderOptions = [1: "Tip #1", 2:"Tip #2",3: "Tip #3", 4:"Tip #4", 5:"Tip #5", 6:"Tip #6"];
 export default class Reminders extends React.Component {
 
-    static navigationOptions = {
-    title: 'Reminder Options',
+  constructor(props){
+    super(props);
+    this.state = {
+        tips : ["Tip #1", "Tip #2","Tip #3", "Tip #4", "Tip #5","Tip #6"]
+    }
+  }
+  static navigationOptions = {
+    title: 'Tip Options',
   };
 
   render() 
@@ -25,7 +31,6 @@ export default class Reminders extends React.Component {
     const {navigate} = this.props.navigation;
       return(
             <View style={styles.tipsbox}>
-            <View style = {styles.header}>
             <View style = {styles.topButton}>
                 <TouchableOpacity
                     style={styles.customBtnBG}
@@ -33,21 +38,22 @@ export default class Reminders extends React.Component {
                     <Text style={styles.customBtnText}>X</Text>
                     </TouchableOpacity>
             </View>
+            <View style = {styles.header}>
                 <View style ={styles.bigheaderText}>
                 <Text>
-                    Reminder Options
+                    Tip Options
                 </Text>
                 </View>
                 <View style ={styles.smolheaderText}>
                 <Text>
-                    Choose reminders you want to receive
+                    Choose health tips you want to receive
                 </Text>
                 </View>
             </View>
             <View style = {{flexDirection: "row", marginTop: 10}}>
               <View style = {styles.togglebuttonText}>
                     <Text>
-                        Reminder #1
+                        Tip #1
                     </Text>
                     </View>
               <View style = {styles.togglebutton}>
@@ -64,7 +70,7 @@ export default class Reminders extends React.Component {
                 <View style = {{flexDirection: "row", marginTop: 50}}>
               <View style = {styles.togglebuttonText}>
                     <Text>
-                        Reminder #2
+                        Tip #2
                     </Text>
                     </View>
               <View style = {styles.togglebutton}>
@@ -81,7 +87,7 @@ export default class Reminders extends React.Component {
                 <View style = {{flexDirection: "row", marginTop: 50}}>
               <View style = {styles.togglebuttonText}>
                     <Text>
-                        Reminder #3
+                        Tip #3
                     </Text>
                     </View>
               <View style = {styles.togglebutton}>
@@ -98,7 +104,7 @@ export default class Reminders extends React.Component {
                 <View style = {{flexDirection: "row", marginTop: 50}}>
               <View style = {styles.togglebuttonText}>
                     <Text>
-                        Reminder #4
+                        Tip #4
                     </Text>
                     </View>
               <View style = {styles.togglebutton}>
@@ -115,7 +121,7 @@ export default class Reminders extends React.Component {
                 <View style = {{flexDirection: "row", marginTop: 50}}>
               <View style = {styles.togglebuttonText}>
                     <Text>
-                        Reminder #5
+                        Tip #5
                     </Text>
                     </View>
               <View style = {styles.togglebutton}>
