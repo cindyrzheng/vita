@@ -17,7 +17,7 @@ import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolic
 
 const plantprof = require('./images/plant.jpg');
 
-export default class SettingsScreen extends React.Component {
+export default class GraphScreen extends React.Component {
     state = {
         option: 'option 1'
     }
@@ -35,49 +35,41 @@ export default class SettingsScreen extends React.Component {
   {
       return(
           <View style = {styles.container}>
-            <View style = {styles.topOptions}>
-                <View style = {styles.topButton}>
-                    <TouchableOpacity
-                        style={styles.customBtnBG}
-                        onPress={(e) => this.onPress('option 1')}>
-                        <Text style={styles.customBtnText}>Option 1</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style = {styles.topButton}>
-                    <TouchableOpacity
-                        style={styles.customBtnBG}
-                        onPress = {(e) => this.onPress('option 2')}>
-                        <Text style={styles.customBtnText}>Option 2</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style = {styles.topButton}>
-                    <TouchableOpacity
-                        style={styles.customBtnBG}
-                        onPress={(e) => this.onPress('option 3')}>
-                        <Text style={styles.customBtnText}>Option 3</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style = {styles.topButton}>
-                    <TouchableOpacity
-                        style={styles.customBtnBG}
-                        onPress={(e) => this.onPress('option 4')}>
-                        <Text style={styles.customBtnText}>Option 4</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
                 <View style = {styles.expandedViewText}>
                     <Text>my sleep</Text>
                 </View>
                 <View style = {styles.expandedView}>
-                    <Text>expanded graph here</Text>
+                    <Text>graph here</Text>
                 </View>
                 <View style = {styles.expandedViewText}>
-                    <Text>{this.state.option}</Text>
+                    <Text>Heart Rate</Text>
                 </View>
                 <View style = {styles.expandedView}>
-                    <Text>expanded graph here</Text>
+                    <Text>graph here</Text>
                 </View>
-          </View>
+                 <View style = {styles.expandedViewText}>
+                 <Text>Activity</Text>
+                 </View>
+             <View style = {styles.expandedView}>
+                 <Text>graph here</Text>
+             </View>
+             <View style = {styles.botOptions}>
+                <View style = {styles.botButton}>
+                        <TouchableOpacity
+                            style={styles.customBtnBG}
+                            onPress= {console.log('hi')}>
+                            <Text style={styles.customBtnText}>Tips</Text>
+                        </TouchableOpacity>
+                </View>
+                <View style = {styles.botButton}>
+                    <TouchableOpacity
+                        style={styles.customBtnBG}
+                        onPress={console.log('hi')}>
+                        <Text style={styles.customBtnText}>Reminders</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </View>
       );
   }
 };
@@ -87,15 +79,15 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent : 'center',
     },
-    topOptions:
+    botOptions:
     {
-        marginTop:50,
         flexDirection: 'row',
         justifyContent: 'center',
+        marginTop:100
     },
-    topButton:
+    botButton:
     {
-        paddingHorizontal:5,
+        paddingHorizontal:50,
         paddingVertical: 5,
     },
     customBtnText: {
@@ -110,8 +102,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#D3D3D3",
     paddingHorizontal:5,
     paddingVertical: 5,
-    width: 75,
-    height:75
+    width: 100,
+    height:40
     },
 
     expandedView : {
