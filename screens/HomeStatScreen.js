@@ -10,17 +10,20 @@ import {
   View,
   } from 'react-native';
 import { ExpoConfigView } from '@expo/samples';
-
+import { Font } from 'expo';
 import { MonoText } from '../components/StyledText';
+import { TitleText } from '../components/TitleFont';
 import ToggleSwitch from 'toggle-switch-react-native';
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 import DayGraph from './DayGraphs'
 import Graph from './GraphScreen'
-const plantprof = require('./images/plant.jpg');
+const plantprof = require('./images/plant.png');
+const gear = require('./images/gear.png');
 
 export default class HomeStatScreen extends React.Component {
     state = {
-        option: 'option 1'
+        option: 'option 1',
+        fontLoaded: false
     }
   static navigationOptions = {
     title: null
@@ -32,19 +35,30 @@ export default class HomeStatScreen extends React.Component {
     })
   }
 
+  async componentDidMount() {
+    await Font.loadAsync({
+      'karla': require('../assets/fonts/Karla-Regular.ttf'),
+    });
+    console.log("hehexd")
+    this.setState({fontLoaded : true});
+  }
   render() 
   {
+    const {navigate} = this.props.navigation;
       return(
           <View style = {styles.container}>
             <View style = {styles.SettingsAndGreeting}>
+            {this.state.fontLoaded ? (
                 <View style = {styles.Greeting}>
-                    <Text>Good Morning, ________</Text>
-                </View>
+                    <Text>Good Morning, Alexandra</Text>
+                </View>):null}
                 <View style = {styles.topSettingButton}>
                     <TouchableOpacity
                         style={styles.customBtnBG}
-                        onPress={(e) => this.onPress('option 1')}>
-                        <Text style={styles.customBtnText}>Settings</Text>
+                        onPress={(e) =>navigate('Settings', {name: null})}>
+                        <Image
+                        style = {styles.gear}
+                        source = {gear}/>
                     </TouchableOpacity>
                 </View>
              </View>
@@ -53,7 +67,23 @@ export default class HomeStatScreen extends React.Component {
                 source={plantprof}
             />
             <DayGraph></DayGraph>
-            <Graph></Graph>
+            <Graph style = {{height:310}}></Graph>
+            <View style = {styles.botOptions}>
+                <View style = {styles.botButton}>
+                        <TouchableOpacity
+                            style={styles.backBtnBG}
+                            onPress= {() => navigate('ActualTips', {name: null})}>
+                            <Text style={styles.backBtnText}>Tips</Text>
+                        </TouchableOpacity>
+                </View>
+                <View style = {styles.botButton}>
+                    <TouchableOpacity
+                        style={styles.backBtnBG2}
+                        onPress={() => navigate('ActualReminders', {name: null})}>
+                        <Text style={styles.backBtnText}>Reminders</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
         </View>
       );
   }
@@ -69,14 +99,13 @@ const styles = StyleSheet.create({
     },
     Greeting:{
         left:120,
-        marginTop:20
+        marginTop:30,
+        fontFamily:'karla',
     },
     topSettingButton:{
-        alignSelf: 'flex-end',
-        marginTop: -5,
-        right:10,
-        left:120,
-        paddingHorizontal:20
+        alignSelf: 'flex-start',
+        marginTop: 25,
+        right:150,
     },
     customBtnText: {
         fontSize: 15,
@@ -85,22 +114,62 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 20
     },
+    backBtnText: {
+        fontSize: 15,
+        color: '#FFFFFF',
+        lineHeight: 24,
+        textAlign: 'center',
+        fontFamily:'karla',
+    },
     
-    /* Here style the background of your button */
     customBtnBG: {
-    backgroundColor: "#D3D3D3",
+    backgroundColor: "#FFFFFF",
     paddingHorizontal:5,
     paddingVertical: 5,
-    width: 75,
-    height:75
+    width: 27,
+    height:27
     },
+    botOptions:
+    {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop:10
+    },
+    backBtnBG: {
+        backgroundColor: "#FFBB63",
+        paddingHorizontal:5,
+        paddingVertical: 5,
+        width: 100,
+        height:40,
+        borderRadius: 10
+        },
+
+        backBtnBG2: {
+            backgroundColor: "#63ABFF",
+            paddingHorizontal:5,
+            paddingVertical: 5,
+            width: 100,
+            height:40,
+            borderRadius: 10
+            },
+        botButton:
+        {
+            paddingHorizontal:50,
+            paddingVertical: 5,
+        },
+
     plantprof: {
-        width: 50,
-        height: 50,
+        width: 67,
+        height: 62,
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
-        marginTop:-20
+        marginTop:10
     },
+    gear:{
+        width:27,
+        height:27,
+    }
+    
     
 });

@@ -17,9 +17,9 @@ import { MonoText } from '../components/StyledText';
 import ToggleSwitch from 'toggle-switch-react-native';
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 
-const plantprof = require('./images/plant.png');
-
-export default class SettingsScreen extends React.Component {
+const plantprof = require('./images/leaves.png');
+const gear = require('./images/gear.png');
+export default class TipsHome extends React.Component {
   static navigationOptions = {
     title: null
   };
@@ -33,46 +33,34 @@ export default class SettingsScreen extends React.Component {
           <View style = {styles.topButton}>
           <TouchableOpacity
               style={styles.xButton}
-              onPress={() => navigate('Home', {name: null})}>
+              onPress={() => navigate('ActualTips', {name: null})}>
               <Text style={styles.xBtnText}>X</Text>
               </TouchableOpacity>
           </View>
-          <Text style = {styles.headerText}>Settings</Text>
-             <View style={styles.CircleShapeView}>
-             <Image
-                style={styles.plantprof}
-                source={plantprof}
-            />
-             </View>
+          <Text style = {styles.headerText}>Sleep Tips</Text>
+          <Text style = {{marginTop: -20, color :'#818181', marginBottom: 10 }}>Tap the tip to read more</Text>
           <View style = {styles.settingContainer}>
              <TouchableOpacity
-              style={styles.customBtnBG}
+              style={
+                  {backgroundColor: "#FFFDEF",
+                    width: 342,
+                    height:150,
+                    borderRadius:30}}
               onPress={() => navigate('Notifications', {name: 'Notification Options'})}>
-              <Text style={styles.customBtnText}>Notifications</Text>
+              <Text style={styles.customBtnText}>Make sure you keep your sleep schedule consistent, from the time to sleep to when you wake up, even on the weekends. An established sleep schedule helps your cardiovascular system, your functions of learning and memory, and your immune system.</Text>
               </TouchableOpacity>
           </View>
 
           <View style = {styles.settingContainer}>
           <TouchableOpacity
-              style={styles.customBtnBG}
+              style={{
+                backgroundColor: "#F9FDF9",
+                width: 342,
+                height:117,
+                borderRadius:30
+                }}
               onPress={() => navigate('Tips', {name: null})}>
-              <Text style={styles.customBtnText}>Tips</Text>
-              </TouchableOpacity>
-          </View>
-
-          <View style = {styles.settingContainer}>
-          <TouchableOpacity
-              style={styles.customBtnBG}
-              onPress={() => navigate('Reminders', {name: null})}>
-              <Text style={styles.customBtnText}>Reminders</Text>
-              </TouchableOpacity>
-          </View>
-
-          <View style = {styles.settingContainer}>
-          <TouchableOpacity
-              style={styles.customBtnBG}
-              onPress={() => navigate('Notifications', {name: null})}>
-              <Text style={styles.customBtnText}>Help</Text>
+              <Text style={styles.customBtnText}>Sleep at a cool temperature, around 65 degrees Fahrenheit. Better quality sleep helps to restore and regulate your physical health, mental health, and even reproductive health.</Text>
               </TouchableOpacity>
           </View>
           </View>
@@ -89,53 +77,41 @@ const styles = StyleSheet.create({
     container: {
       flex:1,
       alignItems:'center',
-      justifyContent:'center',
       marginTop:-20,
       backgroundColor:'#FFFFFF'
     },
+    settingsBtnBG: {
+        backgroundColor: "#FFFFFF",
+        width: 27,
+        height:27
+        },
+    gear:{
+        width:27,
+        height:27,
+    },
     headerText:{
-      marginTop:-30,
+      marginTop:-40,
       color:'#000000',
       fontSize:36,
       lineHeight:85
     },
-    plantprof: {
-        width: 67,
-        height: 62,
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignSelf: 'center',
-        marginTop:20
-    },
-    CircleShapeView: {
-      width: 100,
-        height: 100,
-        borderRadius: 50,
-        backgroundColor:'#FFFFFF',
-        borderWidth:1,
-        borderColor:'#FFFFFF',
-        borderBottomWidth:0,
-        shadowColor:'#D3D3D3',
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        shadowOffset: {
-          height: 1,
-          width: 1
-        },
-        elevation:1,
-        marginBottom:30
-  },
     
     settingContainer:
     {
       alignItems: 'center',
       marginTop: 10,
+      
     },
     topButton:{
       alignSelf: 'flex-end',
-      marginTop: -5,
+      marginTop: 25,
       right:10
     },
+    topSButton:{
+        alignSelf: 'flex-start',
+        marginTop: 30,
+        left:10
+      },
     settingText: {
     fontSize: 25,
     color: 'rgba(96,100,109, 1)',
@@ -147,24 +123,26 @@ const styles = StyleSheet.create({
     height: 30,
   },
   customBtnText: {
-    fontSize: 20,
-    color: '#FFFFFF',
-    lineHeight: 24,
-    textAlign: 'center',
-    marginTop:10
+    fontSize: 15,
+    color: '#000000',
+    lineHeight: 18,
+    textAlign: 'left',
+    marginTop:10,
+    left:10,
+    marginRight: 10
 },
 xBtnText: {
   fontSize: 25,
   color: '#000000',
   lineHeight: 24,
   textAlign: 'center',
-  marginTop:-50
+  marginTop: 0
 },
 /* Here style the background of your button */
 customBtnBG: {
 backgroundColor: "#84A6FD",
-width: 312,
-height:46,
+width: 342,
+height:84,
 borderRadius:30
 },
 xButton:{

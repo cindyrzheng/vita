@@ -23,119 +23,108 @@ export default class Reminders extends React.Component {
     }
   }
   static navigationOptions = {
-    title: 'Tip Options',
+    title: null,
   };
 
   render() 
   {
     const {navigate} = this.props.navigation;
       return(
-            <View style={styles.tipsbox}>
-            <View style = {styles.topButton}>
-                <TouchableOpacity
-                    style={styles.customBtnBG}
-                    onPress={() => navigate('Settings', {name: 'Settings Screen'})}>
-                    <Text style={styles.customBtnText}>X</Text>
-                    </TouchableOpacity>
-            </View>
-            <View style = {styles.header}>
-                <View style ={styles.bigheaderText}>
-                <Text>
-                    Tip Options
-                </Text>
+        <View style={styles.container}>
+          <View style = {styles.topButton}>
+              <TouchableOpacity
+                  style={styles.customBtnBG}
+                  onPress={() => navigate('Home', {name: null})}>
+                  <Text style={styles.xBtnText}>X</Text>
+                  </TouchableOpacity>
+          </View>
+          <View style = {styles.header}>
+              <View style ={styles.bigheaderText}>
+                <Text>Tip Options</Text>
+              </View>
+              <View style ={styles.smolheaderText}>
+                <Text>Choose health tips you want to receive</Text>
+              </View>
+          </View>
+          <View style={styles.tipsbox}>
+            <View style = {{flexDirection: "row", marginTop: 10, paddingTop:30}}>
+                <View style = {styles.togglebuttonText}>
+                      <Text> Sleep</Text>
                 </View>
-                <View style ={styles.smolheaderText}>
-                <Text>
-                    Choose health tips you want to receive
-                </Text>
-                </View>
-            </View>
-            <View style = {{flexDirection: "row", marginTop: 10}}>
-              <View style = {styles.togglebuttonText}>
-                    <Text>
-                        Tip #1
-                    </Text>
-                    </View>
-              <View style = {styles.togglebutton}>
-                    <ToggleSwitch
-                        isOn={false}
-                        onColor='red'
-                        offColor='green'
-                        label=''
-                        labelStyle={{color: 'black', fontWeight: '900'}}
-                        size='medium'
-                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
-                  </View>
-                </View>
-                <View style = {{flexDirection: "row", marginTop: 50}}>
-              <View style = {styles.togglebuttonText}>
-                    <Text>
-                        Tip #2
-                    </Text>
-                    </View>
-              <View style = {styles.togglebutton}>
-                    <ToggleSwitch
-                        isOn={false}
-                        onColor='red'
-                        offColor='green'
-                        label=''
-                        labelStyle={{color: 'black', fontWeight: '900'}}
-                        size='medium'
-                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
-                  </View>
-                </View>
-                <View style = {{flexDirection: "row", marginTop: 50}}>
-              <View style = {styles.togglebuttonText}>
-                    <Text>
-                        Tip #3
-                    </Text>
-                    </View>
-              <View style = {styles.togglebutton}>
-                    <ToggleSwitch
-                        isOn={false}
-                        onColor='red'
-                        offColor='green'
-                        label=''
-                        labelStyle={{color: 'black', fontWeight: '900'}}
-                        size='medium'
-                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
-                  </View>
-                </View>
-                <View style = {{flexDirection: "row", marginTop: 50}}>
-              <View style = {styles.togglebuttonText}>
-                    <Text>
-                        Tip #4
-                    </Text>
-                    </View>
-              <View style = {styles.togglebutton}>
-                    <ToggleSwitch
-                        isOn={false}
-                        onColor='red'
-                        offColor='green'
-                        label=''
-                        labelStyle={{color: 'black', fontWeight: '900'}}
-                        size='medium'
-                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
-                  </View>
-                </View>
-                <View style = {{flexDirection: "row", marginTop: 50}}>
-              <View style = {styles.togglebuttonText}>
-                    <Text>
-                        Tip #5
-                    </Text>
-                    </View>
-              <View style = {styles.togglebutton}>
-                    <ToggleSwitch
-                        isOn={false}
-                        onColor='red'
-                        offColor='green'
-                        label=''
-                        labelStyle={{color: 'black', fontWeight: '900'}}
-                        size='medium'
-                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
-                  </View>
+                <View style = {styles.togglebutton}>
+                  <ToggleSwitch
+                      isOn={true}
+                      onColor='#FFDCAF'
+                      offColor='#FFDCAF'
+                      label=''
+                      labelStyle={{color: '#FFDCAF', fontWeight: '900'}}
+                      size='medium'
+                      onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
                 </View>
               </View>
+              <View style = {{flexDirection: "row", marginTop: 50,}}>
+                <View style = {styles.togglebuttonText}>
+                      <Text> Water</Text>
+                </View>
+                <View style = {styles.togglebutton}>
+                  <ToggleSwitch
+                      isOn={false}
+                      onColor='#FFDCAF'
+                      offColor='#FFDCAF'
+                      label=''
+                      labelStyle={{color: '#FFDCAF', fontWeight: '900'}}
+                      size='medium'
+                      onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
+                </View>
+              </View>
+              <View style = {{flexDirection: "row", marginTop: 50}}>
+                <View style = {styles.togglebuttonText}>
+                  <Text> Activity</Text>
+                </View>
+                <View style = {styles.togglebutton}>
+                  <ToggleSwitch
+                      isOn={false}
+                      onColor='#FFDCAF'
+                      offColor='#FFDCAF'
+                      label=''
+                      labelStyle={{color: '#FFDCAF', fontWeight: '900'}}
+                      size='medium'
+                      onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
+                </View>
+              </View>
+              <View style = {{flexDirection: "row", marginTop: 50}}>
+              <View style = {styles.togglebuttonText}>
+                  <Text> Heart rate</Text>
+                </View>
+                <View style = {styles.togglebutton}>
+                  <ToggleSwitch
+                      isOn={false}
+                      onColor='#FFDCAF'
+                      offColor='#FFDCAF'
+                      label=''
+                      labelStyle={{color: '#FFDCAF', fontWeight: '900'}}
+                      size='medium'
+                      onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
+                </View>
+              </View>
+              <View style = {{flexDirection: "row", marginTop: 50}}>
+                <View style = {styles.togglebuttonText}>
+                  <Text> Mood</Text>
+                </View>
+                <View style = {styles.togglebutton}>
+                  <ToggleSwitch
+                      isOn={false}
+                      onColor='#FFDCAF'
+                      offColor='#FFDCAF'
+                      label=''
+                      labelStyle={{color: '#FFDCAF', fontWeight: '900'}}
+                      size='medium'
+                      onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
+                </View>
+              </View>
+            </View>
+          </View>
+              
               );
   }
 }
@@ -144,45 +133,66 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor:'#FFFFFF'
     },
     topButton:{
-        alignSelf: 'flex-end',
-        marginTop: 0,
-        right: 280
+      alignSelf: 'flex-end',
+      right:10
       },
-    header: {
-        alignItems: 'center',
-        marginBottom: 20
-    },
-    bigheaderText: {
+      xBtnText: {
         fontSize: 25,
-        color: 'rgba(96,100,109, 1)',
+        color: '#000000',
         lineHeight: 24,
         textAlign: 'center',
-        marginBottom: 20
+      },
+    header: {
+      alignItems: 'center',
+      marginBottom: 20
+    },
+    headerText:{
+      color:'#000000',
+      fontSize:36,
+      lineHeight:85
     },
     smolheaderText: {
-        fontSize: 10,
-        color: 'rgba(96,100,109, 1)',
-        lineHeight: 24,
+        fontSize: 12,
+        color: '#000000',
+        lineHeight: 14,
         textAlign: 'center',
         marginBottom: 20
     },
     tipsbox : { 
         flex: 1, 
         flexDirection: "column", 
-        alignSelf: "stretch", 
-        alignItems: "center"
+        width: 257,
+        height: 257,
+        borderRadius: 30,
+        backgroundColor:'#FFFFFF',
+        borderWidth:1,
+        borderColor:'#FFFFFF',
+        borderBottomWidth:0,
+        shadowColor:'#D3D3D3',
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        shadowOffset: {
+          height: 1,
+          width: 1
+        },
+        elevation:1,
+        marginBottom:30
     },
     togglebutton: { 
         flex: 1, 
-        marginLeft: 20,
-        marginRight:60
+        alignSelf:'flex-end',
+        marginRight:10
     },
     togglebuttonText: {
       flex:1,
-      marginTop: 5,
-      marginRight: 20,
-      marginLeft: 100
+      marginTop: -10,
+      height:15,
+      width:80,
+      marginLeft: 10,
+      marginRight:95,
+      color:'#151515'
     },
 });

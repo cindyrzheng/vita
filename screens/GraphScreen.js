@@ -14,13 +14,12 @@ import { ExpoConfigView } from '@expo/samples';
 import { MonoText } from '../components/StyledText';
 import ToggleSwitch from 'toggle-switch-react-native';
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
-
+import SleepGraph from './SleepGraph.js';
+import WaterGraph from './WaterGraph.js';
+import ActivityGraph from './ActivityGraph.js';
 const plantprof = require('./images/plant.jpg');
 
 export default class GraphScreen extends React.Component {
-    state = {
-        option: 'option 1'
-    }
   static navigationOptions = {
     title: null
   };
@@ -35,40 +34,9 @@ export default class GraphScreen extends React.Component {
   {
       return(
           <View style = {styles.container}>
-                <View style = {styles.expandedViewText}>
-                    <Text>my sleep</Text>
-                </View>
-                <View style = {styles.expandedView}>
-                    <Text>graph here</Text>
-                </View>
-                <View style = {styles.expandedViewText}>
-                    <Text>Heart Rate</Text>
-                </View>
-                <View style = {styles.expandedView}>
-                    <Text>graph here</Text>
-                </View>
-                 <View style = {styles.expandedViewText}>
-                 <Text>Activity</Text>
-                 </View>
-             <View style = {styles.expandedView}>
-                 <Text>graph here</Text>
-             </View>
-             <View style = {styles.botOptions}>
-                <View style = {styles.botButton}>
-                        <TouchableOpacity
-                            style={styles.customBtnBG}
-                            onPress= {console.log('hi')}>
-                            <Text style={styles.customBtnText}>Tips</Text>
-                        </TouchableOpacity>
-                </View>
-                <View style = {styles.botButton}>
-                    <TouchableOpacity
-                        style={styles.customBtnBG}
-                        onPress={console.log('hi')}>
-                        <Text style={styles.customBtnText}>Reminders</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
+                <SleepGraph></SleepGraph>
+                <WaterGraph></WaterGraph>
+                
         </View>
       );
   }
@@ -79,39 +47,40 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent : 'center',
     },
-    botOptions:
-    {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop:100
-    },
-    botButton:
-    {
-        paddingHorizontal:50,
-        paddingVertical: 5,
-    },
-    customBtnText: {
-        fontSize: 15,
-        color: 'rgba(96,100,109, 1)',
-        lineHeight: 24,
-        textAlign: 'center',
-    },
-    
-    /* Here style the background of your button */
-    customBtnBG: {
-    backgroundColor: "#D3D3D3",
-    paddingHorizontal:5,
-    paddingVertical: 5,
-    width: 100,
-    height:40
-    },
-
     expandedView : {
         marginTop:25,
         alignSelf: 'center',
     },
     expandedViewText : {
         marginTop:25,
-        paddingHorizontal:20
+        paddingHorizontal:20,
+        alignSelf:'center',
+        fontSize:18,
+        lineHeight:21,
+        color:'#151515'
+    },
+    graphDescription:{
+        fontSize:15,
+        lineHeight:17.54,
+        alignSelf:'center',
+        color:'#4A4A4A',
     }
 });
+/*<View style = {styles.expandedViewText}>
+                    <Text>Water</Text>
+                </View>
+                <View style = {styles.expandedView}>
+                    <Text>graph here</Text>
+                </View>
+                <View style = {styles.expandedViewText}>
+                    <Text>You drank 5 cups of water today</Text>
+                </View>
+                 <View style = {styles.expandedViewText}>
+                 <Text>Activity</Text>
+                 </View>
+             <View style = {styles.expandedView}>
+                 <Text>graph here</Text>
+             </View>
+             <View style = {styles.expandedViewText}>
+                    <Text>You exercised a total of 30 minutes today</Text>
+                </View>*/

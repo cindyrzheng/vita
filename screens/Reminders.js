@@ -5,178 +5,195 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  Button,
   TouchableOpacity,
   View,
+
   } from 'react-native';
+  
 import { ExpoConfigView } from '@expo/samples';
-import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+
 import { MonoText } from '../components/StyledText';
 import ToggleSwitch from 'toggle-switch-react-native';
+import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 
-//var reminderOptions = [1: "Tip #1", 2:"Tip #2",3: "Tip #3", 4:"Tip #4", 5:"Tip #5", 6:"Tip #6"];
-export default class Reminders extends React.Component {
-
-    static navigationOptions = {
-    title: 'Reminder Options',
+const plantprof = require('./images/leaves.png');
+const gear = require('./images/gear.png');
+export default class RemindersScreen extends React.Component {
+  static navigationOptions = {
+    title: null
   };
 
   render() 
   {
     const {navigate} = this.props.navigation;
-      return(
-            <View style={styles.tipsbox}>
-            <View style = {styles.header}>
-            <View style = {styles.topButton}>
-                <TouchableOpacity
-                    style={styles.customBtnBG}
-                    onPress={() => navigate('Settings', {name: 'Settings Screen'})}>
-                    <Text style={styles.customBtnText}>X</Text>
-                    </TouchableOpacity>
-            </View>
-                <View style ={styles.bigheaderText}>
-                <Text>
-                    Reminder Options
-                </Text>
-                </View>
-                <View style ={styles.smolheaderText}>
-                <Text>
-                    Choose reminders you want to receive
-                </Text>
-                </View>
-            </View>
-            <View style = {{flexDirection: "row", marginTop: 10}}>
-              <View style = {styles.togglebuttonText}>
-                    <Text>
-                        Reminder #1
-                    </Text>
-                    </View>
-              <View style = {styles.togglebutton}>
-                    <ToggleSwitch
-                        isOn={false}
-                        onColor='red'
-                        offColor='green'
-                        label=''
-                        labelStyle={{color: 'black', fontWeight: '900'}}
-                        size='medium'
-                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
-                  </View>
-                </View>
-                <View style = {{flexDirection: "row", marginTop: 50}}>
-              <View style = {styles.togglebuttonText}>
-                    <Text>
-                        Reminder #2
-                    </Text>
-                    </View>
-              <View style = {styles.togglebutton}>
-                    <ToggleSwitch
-                        isOn={false}
-                        onColor='red'
-                        offColor='green'
-                        label=''
-                        labelStyle={{color: 'black', fontWeight: '900'}}
-                        size='medium'
-                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
-                  </View>
-                </View>
-                <View style = {{flexDirection: "row", marginTop: 50}}>
-              <View style = {styles.togglebuttonText}>
-                    <Text>
-                        Reminder #3
-                    </Text>
-                    </View>
-              <View style = {styles.togglebutton}>
-                    <ToggleSwitch
-                        isOn={false}
-                        onColor='red'
-                        offColor='green'
-                        label=''
-                        labelStyle={{color: 'black', fontWeight: '900'}}
-                        size='medium'
-                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
-                  </View>
-                </View>
-                <View style = {{flexDirection: "row", marginTop: 50}}>
-              <View style = {styles.togglebuttonText}>
-                    <Text>
-                        Reminder #4
-                    </Text>
-                    </View>
-              <View style = {styles.togglebutton}>
-                    <ToggleSwitch
-                        isOn={false}
-                        onColor='red'
-                        offColor='green'
-                        label=''
-                        labelStyle={{color: 'black', fontWeight: '900'}}
-                        size='medium'
-                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
-                  </View>
-                </View>
-                <View style = {{flexDirection: "row", marginTop: 50}}>
-              <View style = {styles.togglebuttonText}>
-                    <Text>
-                        Reminder #5
-                    </Text>
-                    </View>
-              <View style = {styles.togglebutton}>
-                    <ToggleSwitch
-                        isOn={false}
-                        onColor='red'
-                        offColor='green'
-                        label=''
-                        labelStyle={{color: 'black', fontWeight: '900'}}
-                        size='medium'
-                        onToggle={ (isOn) => console.log('changed to : ', isOn)}/>
-                  </View>
-                </View>
-              </View>
-              );
+      return( 
+
+         <View style={styles.container}>
+         <View style = {styles.topSButton}>
+            <TouchableOpacity
+                        style={styles.settingsBtnBG}
+                        onPress={(e) =>navigate('Settings', {name: null})}>
+                        <Image
+                        style = {styles.gear}
+                        source = {gear}/>
+            </TouchableOpacity>
+         </View>
+          <View style = {styles.topButton}>
+          <TouchableOpacity
+              style={styles.xButton}
+              onPress={() => navigate('Home', {name: null})}>
+              <Text style={styles.xBtnText}>X</Text>
+              </TouchableOpacity>
+          </View>
+          <Text style = {styles.headerText}>Reminders</Text>
+             <View style={styles.CircleShapeView}>
+             <Image
+                style={styles.plantprof}
+                source={plantprof}
+            />
+             </View>
+          <View style = {styles.settingContainer}>
+             <TouchableOpacity
+              style={styles.customBtnBG}
+              onPress={() => navigate('RemindersHome', {name:null})}>
+              <Text style={styles.customBtnText}>Sleep</Text>
+              </TouchableOpacity>
+          </View>
+
+          <View style = {styles.settingContainer}>
+          <TouchableOpacity
+              style={{
+                backgroundColor: "#FFBB63",
+                width: 312,
+                height:46,
+                borderRadius:30
+                }}
+              onPress={() => navigate('RemindersHome', {name: null})}>
+              <Text style={styles.customBtnText}>Activity</Text>
+              </TouchableOpacity>
+          </View>
+
+          <View style = {styles.settingContainer}>
+          <TouchableOpacity
+              style={{
+                backgroundColor: "#5ECE79",
+                width: 312,
+                height:46,
+                borderRadius:30
+                }}
+              onPress={() => navigate('RemindersHome', {name: null})}>
+              <Text style={styles.customBtnText}>Water Intake</Text>
+              </TouchableOpacity>
+          </View>
+
+          </View>
+          
+
+
+
+    );
+
   }
 }
 
 const styles = StyleSheet.create({
     container: {
+      flex:1,
+      alignItems:'center',
+      marginTop:-20,
+      backgroundColor:'#FFFFFF'
+    },
+    settingsBtnBG: {
+        backgroundColor: "#FFFFFF",
+        width: 27,
+        height:27
+        },
+    gear:{
+        width:27,
+        height:27,
+    },
+    headerText:{
+      marginTop:-60,
+      color:'#000000',
+      fontSize:36,
+      lineHeight:85
+    },
+    plantprof: {
+        width: 110,
+        height: 62,
         justifyContent: 'center',
         alignItems: 'center',
+        alignSelf: 'center',
+        marginTop:45
+    },
+    CircleShapeView: {
+      width: 153,
+        height: 153,
+        borderRadius: 153/2,
+        backgroundColor:'#FFFFFF',
+        borderWidth:1,
+        borderColor:'#FFFFFF',
+        borderBottomWidth:0,
+        shadowColor:'#D3D3D3',
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        shadowOffset: {
+          height: 1,
+          width: 1
+        },
+        elevation:1,
+        marginBottom:30
+  },
+    
+    settingContainer:
+    {
+      alignItems: 'center',
+      marginTop: 10,
+      
     },
     topButton:{
-        alignSelf: 'flex-end',
-        marginTop: 0,
-        right: 280
+      alignSelf: 'flex-end',
+      marginTop: 25,
+      right:10
+    },
+    topSButton:{
+        alignSelf: 'flex-start',
+        marginTop: 30,
+        left:10
       },
-    header: {
-        alignItems: 'center',
-        marginBottom: 20
-    },
-    bigheaderText: {
-        fontSize: 25,
-        color: 'rgba(96,100,109, 1)',
-        lineHeight: 24,
-        textAlign: 'center',
-        marginBottom: 20
-    },
-    smolheaderText: {
-        fontSize: 10,
-        color: 'rgba(96,100,109, 1)',
-        lineHeight: 24,
-        textAlign: 'center',
-        marginBottom: 20
-    },
-    tipsbox : { 
-        flex: 1, 
-        flexDirection: "column", 
-        alignSelf: "stretch", 
-        alignItems: "center"
-    },
-    togglebutton: { 
-        flex: 1, 
-        marginLeft: 20,
-        marginRight:60
-    },
-    togglebuttonText: {
-      flex:1,
-      marginTop: 5,
-      marginRight: 20,
-      marginLeft: 100
-    },
+    settingText: {
+    fontSize: 25,
+    color: 'rgba(96,100,109, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
+  },
+  button: {
+    width: 150,
+    height: 30,
+  },
+  customBtnText: {
+    fontSize: 20,
+    color: '#FFFFFF',
+    lineHeight: 24,
+    textAlign: 'center',
+    marginTop:10
+},
+xBtnText: {
+  fontSize: 25,
+  color: '#000000',
+  lineHeight: 24,
+  textAlign: 'center',
+  marginTop:-50
+},
+/* Here style the background of your button */
+customBtnBG: {
+backgroundColor: "#84A6FD",
+width: 312,
+height:46,
+borderRadius:30
+},
+xButton:{
+  backgroundColor: '#FFFFFF',
+}
 });
