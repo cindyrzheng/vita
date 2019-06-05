@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Image, TouchableOpacity, Alert, Button, TextInput, Text, View, StyleSheet, ActivityIndicator } from 'react-native';
 import { LinearGradient } from 'expo';
-import {Card, CardSection, RButton} from '../components'
-import axios from 'axios'
+import {Card, CardSection, RButton} from '../components';
+import axios from 'axios';
 
 import { TitleText } from '../components/TitleFont';
 
@@ -66,12 +66,14 @@ export default class LoginScreen extends Component {
     });
     axios.post("http://localhost:3000/login?email=" + this.state.username + "&password=" + this.state.password)
     .then((response) => {
+      const {navigate} = this.props.navigation;
       this.setState({
         username: '',
         password: '',
         user: response,
         lloading: false
       });
+      navigate('Home', {name: null});
     })
     .catch((error) => {
       console.log(error);
@@ -206,5 +208,6 @@ const styles = StyleSheet.create({
   bottom: {
     flex: 1,
     justifyContent: 'flex-end',
+    marginBottom: 35
   }
 });

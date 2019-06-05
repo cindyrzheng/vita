@@ -15,15 +15,17 @@ import { MonoText } from '../components/StyledText';
 import { TitleText } from '../components/TitleFont';
 import ToggleSwitch from 'toggle-switch-react-native';
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
-import DayGraph from './DayGraphs'
-import Graph from './GraphScreen'
+import DayGraph from './DayGraphs';
+import Graph from './GraphScreen';
+import axios from 'axios';
 const plantprof = require('./images/plant.png');
 const gear = require('./images/gear.png');
 
 export default class HomeStatScreen extends React.Component {
     state = {
         option: 'option 1',
-        fontLoaded: false
+        fontLoaded: false,
+        user: null
     }
   static navigationOptions = {
     title: null
@@ -33,6 +35,18 @@ export default class HomeStatScreen extends React.Component {
     this.setState({
       option: optionnum
     })
+  }
+
+  onUsername = () => {
+    axios.post("http://localhost:3000/getuser")
+    .then((response) => {
+        this.setState({
+            user: JSON.stringify(response),
+        })
+    })
+    .catch((error) => {
+        console.log(error);
+    });
   }
 
   async componentDidMount() {
@@ -45,6 +59,8 @@ export default class HomeStatScreen extends React.Component {
   render() 
   {
     const {navigate} = this.props.navigation;
+    //this.onUsername();
+    //console.log(this.state.user);
       return(
           <View style = {styles.container}>
             <View style = {styles.SettingsAndGreeting}>
@@ -119,7 +135,7 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         lineHeight: 24,
         textAlign: 'center',
-        fontFamily:'karla',
+        fontFamily:'rubik',
     },
     
     customBtnBG: {
@@ -156,6 +172,7 @@ const styles = StyleSheet.create({
         {
             paddingHorizontal:50,
             paddingVertical: 5,
+            marginBottom:30
         },
 
     plantprof: {

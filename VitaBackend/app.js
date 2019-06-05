@@ -11,6 +11,7 @@ var fbinit = require("./db_controllers/db_manager");
 var login = require("./db_controllers/login");
 var signup = require("./db_controllers/signup");
 var logout = require("./db_controllers/logout");
+var getuser = require("./db_controllers/getuser");
 var addWater = require("./db_controllers/addwater");
 var addMood = require("./db_controllers/addmood");
 
@@ -62,6 +63,10 @@ app.post('/logout', (req,res) => {
     .catch((error) => {
         console.log(error);
     });
+});
+
+app.post('/getuser', (req,res) => {
+    res.send(getuser().currentUser.email);
 });
 
 app.post('/addwater', (req, res) => {
