@@ -38,17 +38,6 @@ export default class HomeStatScreen extends React.Component {
     })
   }
 
-  onUsername = () => {
-    axios.post("http://localhost:3000/getuser")
-    .then((response) => {
-        this.setState({
-            user: JSON.stringify(response),
-        })
-    })
-    .catch((error) => {
-        console.log(error);
-    });
-  }
 
   async componentDidMount() {
     await Font.loadAsync({
@@ -60,14 +49,14 @@ export default class HomeStatScreen extends React.Component {
   render() 
   {
     const {navigate} = this.props.navigation;
-    //this.onUsername();
-    //console.log(this.state.user);
+    const {navigation} = this.props;
+    const username = JSON.stringify(navigation.getParam('username', null));
       return(
           <View style = {styles.container}>
             <View style = {styles.SettingsAndGreeting}>
             {this.state.fontLoaded ? (
                 <View style = {styles.Greeting}>
-                    <Text>Good Morning, Alexandra</Text>
+                    <Text>Good Morning, {username.substr(1, username.indexOf('@')-1)}</Text>
                 </View>):null}
                 <View style = {styles.topSettingButton}>
                     <TouchableOpacity
