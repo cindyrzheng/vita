@@ -17,9 +17,9 @@ import { MonoText } from '../components/StyledText';
 import ToggleSwitch from 'toggle-switch-react-native';
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 
-const plantprof = require('./images/plant.png');
-
-export default class SettingsScreen extends React.Component {
+const water = require('./images/water.png');
+const gear = require('./images/gear.png');
+export default class RemindersScreen extends React.Component {
   static navigationOptions = {
     title: null
   };
@@ -30,6 +30,15 @@ export default class SettingsScreen extends React.Component {
       return( 
 
          <View style={styles.container}>
+         <View style = {styles.topSButton}>
+            <TouchableOpacity
+                        style={styles.settingsBtnBG}
+                        onPress={(e) =>navigate('Settings', {name: null})}>
+                        <Image
+                        style = {styles.gear}
+                        source = {gear}/>
+            </TouchableOpacity>
+         </View>
           <View style = {styles.topButton}>
           <TouchableOpacity
               style={styles.xButton}
@@ -37,53 +46,66 @@ export default class SettingsScreen extends React.Component {
               <Text style={styles.xBtnText}>X</Text>
               </TouchableOpacity>
           </View>
-          <Text style = {styles.headerText}>Settings</Text>
+          <Text style = {styles.headerText}>Add Water</Text>
              <View style={styles.CircleShapeView}>
              <Image
-                style={styles.plantprof}
-                source={plantprof}
+                style={styles.water}
+                source={water}
             />
              </View>
           <View style = {styles.settingContainer}>
              <TouchableOpacity
               style={styles.customBtnBG}
-              onPress={() => navigate('Notifications', {name: 'Notification Options'})}>
-              <Text style={styles.customBtnText}>Notifications</Text>
+              onPress={() => navigate('RemindersHome', {name:null})}>
+              <Text style={styles.customBtnText}>Add 1 cup</Text>
               </TouchableOpacity>
           </View>
 
           <View style = {styles.settingContainer}>
           <TouchableOpacity
-              style={styles.customBtnBG}
-              onPress={() => navigate('Tips', {name: null})}>
-              <Text style={styles.customBtnText}>Tips</Text>
+              style={{
+                backgroundColor: "#FFBB63",
+                width: 312,
+                height:46,
+                borderRadius:30
+                }}
+              onPress={() => navigate('RemindersHome', {name: null})}>
+              <Text style={styles.customBtnText}>Add 2 cups</Text>
               </TouchableOpacity>
           </View>
 
           <View style = {styles.settingContainer}>
           <TouchableOpacity
+              style={{
+                backgroundColor: "#5ECE79",
+                width: 312,
+                height:46,
+                borderRadius:30
+                }}
+              onPress={() => navigate('RemindersHome', {name: null})}>
+              <Text style={styles.customBtnText}>Add 3 cups</Text>
+              </TouchableOpacity>
+          </View>
+          <View style = {styles.settingContainer}>
+             <TouchableOpacity
               style={styles.customBtnBG}
-              onPress={() => navigate('Reminders', {name: null})}>
-              <Text style={styles.customBtnText}>Reminders</Text>
+              onPress={() => navigate('RemindersHome', {name:null})}>
+              <Text style={styles.customBtnText}>Add 4 cups</Text>
               </TouchableOpacity>
           </View>
 
           <View style = {styles.settingContainer}>
           <TouchableOpacity
-              style={styles.customBtnBG}
-              onPress={() => navigate('Notifications', {name: null})}>
-              <Text style={styles.customBtnText}>Help</Text>
+              style={{
+                backgroundColor: "#FFBB63",
+                width: 312,
+                height:46,
+                borderRadius:30
+                }}
+              onPress={() => navigate('RemindersHome', {name: null})}>
+              <Text style={styles.customBtnText}>Add 5 cups</Text>
               </TouchableOpacity>
           </View>
-
-          <View style = {styles.settingContainer}>
-          <TouchableOpacity
-              style={styles.customBtnBG}
-              onPress={() => console.log("logged out")}>
-              <Text style={styles.customBtnText}>Log Out</Text>
-              </TouchableOpacity>
-          </View>
-
           </View>
           
 
@@ -98,28 +120,36 @@ const styles = StyleSheet.create({
     container: {
       flex:1,
       alignItems:'center',
-      justifyContent:'center',
       marginTop:-20,
       backgroundColor:'#FFFFFF'
     },
+    settingsBtnBG: {
+        backgroundColor: "#FFFFFF",
+        width: 27,
+        height:27
+        },
+    gear:{
+        width:27,
+        height:27,
+    },
     headerText:{
-      marginTop:-30,
+      marginTop:-60,
       color:'#000000',
       fontSize:36,
       lineHeight:85
     },
-    plantprof: {
-        width: 67,
-        height: 62,
+    water: {
+        width: 110,
+        height: 110,
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
         marginTop:20
     },
     CircleShapeView: {
-      width: 100,
-        height: 100,
-        borderRadius: 50,
+      width: 153,
+        height: 153,
+        borderRadius: 153/2,
         backgroundColor:'#FFFFFF',
         borderWidth:1,
         borderColor:'#FFFFFF',
@@ -139,12 +169,18 @@ const styles = StyleSheet.create({
     {
       alignItems: 'center',
       marginTop: 10,
+      
     },
     topButton:{
       alignSelf: 'flex-end',
-      marginTop: -5,
+      marginTop: 25,
       right:10
     },
+    topSButton:{
+        alignSelf: 'flex-start',
+        marginTop: 30,
+        left:10
+      },
     settingText: {
     fontSize: 25,
     color: 'rgba(96,100,109, 1)',

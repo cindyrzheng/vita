@@ -11,7 +11,8 @@ import RemindersScreen from '../screens/Reminders';
 import TipsScreen from '../screens/Tips';
 import RemindersHomeScreen from '../screens/ReminderHome';
 import TipsHomeScreen from '../screens/TipHome';
-import LoginScreen from '../screens/Login'
+import LoginScreen from '../screens/Login';
+import AddWaterScreen from '../screens/AddWaterScreen';
 
 const settingScreenNavigator = createStackNavigator({
     Login: LoginScreen,
@@ -23,7 +24,8 @@ const settingScreenNavigator = createStackNavigator({
     ActualReminders: RemindersScreen,
     ActualTips: TipsScreen,
     RemindersHome: RemindersHomeScreen,
-    TipsHome: TipsHomeScreen
+    TipsHome: TipsHomeScreen,
+    AddWater: AddWaterScreen
 
 })
 

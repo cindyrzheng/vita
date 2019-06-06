@@ -36,7 +36,7 @@ export default class GraphScreen extends React.Component {
           <View style = {styles.container}>
                 <SleepGraph></SleepGraph>
                 <WaterGraph></WaterGraph>
-                <ActivityGraph></ActivityGraph> 
+                <ActivityGraph></ActivityGraph>
                 
         </View>
       );

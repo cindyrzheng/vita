@@ -20,6 +20,7 @@ import Graph from './GraphScreen';
 import axios from 'axios';
 const plantprof = require('./images/plant.png');
 const gear = require('./images/gear.png');
+const water = require('./images/water.png');
 
 export default class HomeStatScreen extends React.Component {
     state = {
@@ -91,6 +92,19 @@ export default class HomeStatScreen extends React.Component {
                             onPress= {() => navigate('ActualTips', {name: null})}>
                             <Text style={styles.backBtnText}>Tips</Text>
                         </TouchableOpacity>
+                </View>
+                <View style = {styles.waterButton}>
+                    <TouchableOpacity
+                        style={{backgroundColor: "#FFFFFF",
+                        paddingHorizontal:5,
+                        paddingVertical: 5,
+                        width: 40,
+                        height:40}}
+                        onPress={() => navigate('AddWater', {name: null})}>
+                        <Image 
+                            style = {styles.water}
+                            source = {water}/>
+                    </TouchableOpacity>
                 </View>
                 <View style = {styles.botButton}>
                     <TouchableOpacity
@@ -170,9 +184,13 @@ const styles = StyleSheet.create({
             },
         botButton:
         {
-            paddingHorizontal:50,
+            paddingHorizontal:35,
             paddingVertical: 5,
             marginBottom:30
+        },
+        water:{
+            width:40,
+            height:40
         },
 
     plantprof: {

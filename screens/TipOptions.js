@@ -193,6 +193,7 @@ const styles = StyleSheet.create({
       width:80,
       marginLeft: 10,
       marginRight:95,
-      color:'#151515'
+      color:'#151515',
+      fontFamily: 'rubik'
     },
 });
