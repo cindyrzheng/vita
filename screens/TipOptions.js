@@ -152,14 +152,16 @@ const styles = StyleSheet.create({
     headerText:{
       color:'#000000',
       fontSize:36,
-      lineHeight:85
+      lineHeight:85,
+      fontFamily:"rubik"
     },
     smolheaderText: {
         fontSize: 12,
         color: '#000000',
         lineHeight: 14,
         textAlign: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        fontFamily:"rubik"
     },
     tipsbox : { 
         flex: 1, 
